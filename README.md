@@ -2,26 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
-## Development server
+## Angular Contact Management App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This Angular application is a simple contact management system that allows users to manage their contacts. It provides features such as displaying a list of contacts, adding new contacts, editing existing contacts, and deleting contacts. The contact data is stored locally using Local Storage for persistence.
 
-## Code scaffolding
+## Features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Display a list of contacts with basic information (name, phone number).
+Add, edit, and delete contacts.
+Search functionality to filter contacts.
+Detailed view for each contact showing additional information (date of birth, email address, residential address, etc.).
+Validation of entered contact data.
+Responsive design with Bootstrap styling.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies Used:
 
-## Running unit tests
+Angular Framework
+TypeScript
+HTML/CSS
+Bootstrap
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting Started:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone the repository.
+Navigate to the project directory.
+Install dependencies using npm install.
+Run the development server using ng serve.
+Access the application in your browser at http://localhost:4200.
