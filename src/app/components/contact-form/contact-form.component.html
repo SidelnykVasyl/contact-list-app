@@ -1,0 +1,134 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between mb-5">
+      <h4 class="card-title">
+        {{ mode === Mode.Edit ? "Edit Contact" : "Add Contact" }}
+      </h4>
+      <button
+        *ngIf="mode === Mode.Edit"
+        type="button"
+        class="btn btn-secondary mr-5"
+        [routerLink]="['/contacts']"
+      >
+        Back
+      </button>
+    </div>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+          />
+          <small
+            *ngIf="
+              firstNameFormControl?.invalid && firstNameFormControl?.touched
+            "
+            class="text-danger"
+          >
+            <ng-container *ngIf="(firstNameFormControl?.errors)!['required']"
+              >First name is required</ng-container
+            >
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+          />
+          <small
+            *ngIf="lastNameFormControl?.invalid && lastNameFormControl?.touched"
+            class="text-danger"
+          >
+            <ng-container *ngIf="(lastNameFormControl?.errors)!['required']"
+              >Last name is required</ng-container
+            >
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+            placeholder="Ex: 073-000-00-00 "
+          />
+          <div
+            *ngIf="
+              phoneNumberFormControl?.invalid &&
+              (phoneNumberFormControl?.dirty || phoneNumberFormControl?.touched)
+            "
+          >
+            <small
+              *ngIf="(phoneNumberFormControl?.errors)!['required']"
+              class="text-danger"
+              >Phone number is required</small
+            >
+            <small
+              *ngIf="(phoneNumberFormControl?.errors)!['invalidLength']"
+              class="text-danger"
+              >Invalid phone number</small
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dateOfBirth"
+            formControlName="dateOfBirth"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          <small
+            *ngIf="emailFormControl?.invalid && emailFormControl?.touched"
+            class="text-danger"
+          >
+            <ng-container *ngIf="(emailFormControl?.errors)!['required']"
+              >First name is required</ng-container
+            >
+          </small>
+        </div>
+        <small
+          *ngIf="lastNameFormControl?.invalid && lastNameFormControl?.touched"
+          class="text-danger"
+        >
+          <ng-container *ngIf="(lastNameFormControl?.errors)!['required']"
+            >Last name is required</ng-container
+          >
+        </small>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            class="form-control"
+            id="address"
+            formControlName="address"
+            rows="3"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!contactForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </form>
+  </div>
+</div>

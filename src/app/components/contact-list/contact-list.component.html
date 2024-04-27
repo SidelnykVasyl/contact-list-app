@@ -1,0 +1,64 @@
+<div class="container card mt-5">
+  <div class="card-body">
+    <h4 class="mb-5">Contact List</h4>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search contacts..."
+        [(ngModel)]="searchTerm"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="clearSearch()"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary mb-3 mt-3" (click)="toggleAddContactForm()">
+      Add Contact
+    </button>
+    <div *ngIf="showAddContactForm" [class.mb-5]="showAddContactForm">
+      <app-create-contact></app-create-contact>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of filteredContacts" class="contact-row">
+          <td class="clickable" [routerLink]="['/contacts', contact.id]">
+            {{ contact.firstName }} {{ contact.lastName }}
+          </td>
+          <td class="clickable" [routerLink]="['/contacts', contact.id]">
+            {{ contact.phoneNumber | phoneNumberFormat}}
+          </td>
+          <td>
+            <button
+              class="btn btn-primary btn-sm mr-2"
+              (click)="editContact(contact.id)"
+            >
+              <i class="fas fa-edit"></i><span class="ml-1">Edit</span>
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteContact(contact.id)"
+            >
+              <i class="fas fa-trash-alt"></i><span class="ml-1">Delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
